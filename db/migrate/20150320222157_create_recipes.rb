@@ -9,6 +9,7 @@ class CreateRecipes < ActiveRecord::Migration
       t.integer :cuisine_id
       t.text :ingredients
       t.text :procedure
+      t.integer :servings
 
       t.timestamps null: false
     end
