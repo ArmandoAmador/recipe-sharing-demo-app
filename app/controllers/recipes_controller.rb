@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :set_values
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -61,5 +62,11 @@ class RecipesController < ApplicationController
       :title, :cooking_time, :difficulty_level,
       :food_type_id, :food_preference_id, :cuisine_id, :ingredients,
       :procedure, :servings)
+  end
+
+  def set_values
+    @food_preferences = FoodPreference.all
+    @food_types = FoodType.all
+    @cuisines = Cuisine.all
   end
 end

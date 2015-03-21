@@ -2,7 +2,7 @@
 
 <h1>Listing Recipes</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -31,7 +31,7 @@
         <td><%= recipe.ingredients %></td>
         <td><%= recipe.procedure %></td>
 
-        <td><%= link_to 'Show', recipe %></td>
+        <td><%= link_to 'Show', recipe, :class=> "brn btn-primary btn-small" %></td>
         <% if user_signed_in? %>
           <td><%= link_to 'Edit', edit_recipe_path(recipe), :class=>"btn btn-success btn-small" %></td>
           <td><%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn btn-danger btn-small" %></td>
@@ -43,4 +43,4 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<%= link_to 'Create a Recipe', new_recipe_path, :class=>"btn btn-default" %>
